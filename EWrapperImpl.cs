@@ -62,17 +62,21 @@ namespace IB.PriceFetcher
 
         public void connectionClosed()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Connection closed.\n");
         }
 
         public void contractDetails(int reqId, ContractDetails contractDetails)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("/*******Incoming Contract Details - RequestId " + reqId + "************/");
+            Console.WriteLine(contractDetails.Summary.Symbol + " " + contractDetails.Summary.SecType + " @ " + contractDetails.Summary.Exchange);
+            Console.WriteLine("Expiry: " + contractDetails.Summary.Expiry + ", Right: " + contractDetails.Summary.Right);
+            Console.WriteLine("Strike: " + contractDetails.Summary.Strike + ", Multiplier: " + contractDetails.Summary.Multiplier);
+            Console.WriteLine("/*******     End     *************/\n");
         }
 
         public void contractDetailsEnd(int reqId)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Finished receiving matching contracts.");
         }
 
         public void currentTime(long time)
@@ -125,14 +129,14 @@ namespace IB.PriceFetcher
             throw new NotImplementedException();
         }
 
-        public void historicalData(int reqId, string date, double open, double high, double low, double close, int volume, int count, double WAP, bool hasGaps)
+        public virtual void historicalData(int reqId, string date, double open, double high, double low, double close, int volume, int count, double WAP, bool hasGaps)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("HistoricalData. " + reqId + " - Date: " + date + ", Open: " + open + ", High: " + high + ", Low: " + low + ", Close: " + close + ", Volume: " + volume + ", Count: " + count + ", WAP: " + WAP + ", HasGaps: " + hasGaps + "\n");
         }
 
         public void historicalDataEnd(int reqId, string start, string end)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Historical data end - " + reqId + " from " + start + " to " + end);
         }
 
         public void managedAccounts(string accountsList)
