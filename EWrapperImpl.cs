@@ -17,10 +17,12 @@ namespace IB.PriceFetcher
     {
         private EClientSocket clientSocket;
         private int nextOrderId;
+        private PriceDataManager _priceDataManager;
 
-        public EWrapperImpl()
+        public EWrapperImpl(PriceDataManager priceDataManager)
         {            
             clientSocket = new EClientSocket(this);
+            _priceDataManager = priceDataManager;
         }
 
         public EClientSocket ClientSocket
@@ -132,11 +134,13 @@ namespace IB.PriceFetcher
         public virtual void historicalData(int reqId, string date, double open, double high, double low, double close, int volume, int count, double WAP, bool hasGaps)
         {
             Console.WriteLine("HistoricalData. " + reqId + " - Date: " + date + ", Open: " + open + ", High: " + high + ", Low: " + low + ", Close: " + close + ", Volume: " + volume + ", Count: " + count + ", WAP: " + WAP + ", HasGaps: " + hasGaps + "\n");
+            _priceDataManager.AddHistoricalData(reqId, new HistoricalDataMessage(reqId, date, open, high, low, close, volume, count, WAP, hasGaps));
         }
 
         public void historicalDataEnd(int reqId, string start, string end)
         {
             Console.WriteLine("Historical data end - " + reqId + " from " + start + " to " + end);
+            _priceDataManager.ExportHistoricalData(reqId);
         }
 
         public void managedAccounts(string accountsList)

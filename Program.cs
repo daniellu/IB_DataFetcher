@@ -13,7 +13,8 @@ namespace IB.PriceFetcher
     {
         static void Main(string[] args)
         {
-            EWrapperImpl client = new EWrapperImpl();
+            var priceDataManager = new PriceDataManager();
+            EWrapperImpl client = new EWrapperImpl(priceDataManager);
 
             //connect
             client.ClientSocket.eConnect("127.0.0.1", 7496, 0);
