@@ -43,6 +43,9 @@ namespace IB.PriceFetcher
                     var csv = new CsvWriter(textWriter);
                     csv.WriteRecords(data);
                 }
+
+                var jsonGenerator = new JsonFileGenerator();
+                jsonGenerator.GenerateJsonFile(requestId, AppDataPath, data);
                 return true;
             }
 
