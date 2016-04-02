@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+
+using CsvHelper;
 
 namespace IB.PriceFetcher
 {
     public class PriceDataManager
     {
-
+        private static string AppDataPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_Data");
         protected Dictionary<int, IList<HistoricalDataMessage>> HistoricalData { get; set; }
 
         public PriceDataManager()
@@ -34,6 +37,12 @@ namespace IB.PriceFetcher
 
             if (data != null)
             {
+                var filePath = Path.Combine(AppDataPath, requestId + ".csv");
+                using (var textWriter = File.CreateText(filePath))
+                {
+                    var csv = new CsvWriter(textWriter);
+                    csv.WriteRecords(data);
+                }
                 return true;
             }
 

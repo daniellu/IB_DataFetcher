@@ -13,6 +13,7 @@ namespace IB.PriceFetcher
     {
         static void Main(string[] args)
         {
+            int nextRequestId = 1;
             var priceDataManager = new PriceDataManager();
             EWrapperImpl client = new EWrapperImpl(priceDataManager);
 
@@ -20,11 +21,11 @@ namespace IB.PriceFetcher
             client.ClientSocket.eConnect("127.0.0.1", 7496, 0);
 
             var stockContract = GetStockContract();
-            client.ClientSocket.reqContractDetails(1, stockContract);
+            client.ClientSocket.reqContractDetails(nextRequestId++, stockContract);
 
             //4002 is the request Id appears in the response
             //program uses this id to match where the request comes from 
-            client.ClientSocket.reqHistoricalData(4002, stockContract, "20131009 23:59:59", "10 D", "1 min", "TRADES", 1, 1, null);
+            client.ClientSocket.reqHistoricalData(nextRequestId++, stockContract, "20131009 23:59:59", "10 D", "1 min", "TRADES", 1, 1, null);
             Thread.Sleep(10000);
             Console.WriteLine("Disconnecting...");
             client.ClientSocket.eDisconnect();
