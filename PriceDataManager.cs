@@ -37,12 +37,8 @@ namespace IB.PriceFetcher
 
             if (data != null)
             {
-                var filePath = Path.Combine(AppDataPath, requestId + ".csv");
-                using (var textWriter = File.CreateText(filePath))
-                {
-                    var csv = new CsvWriter(textWriter);
-                    csv.WriteRecords(data);
-                }
+                var csvGenerator = new CsvFileGenerator();
+                csvGenerator.GenerateCsvFile(requestId, AppDataPath, data);
 
                 var jsonGenerator = new JsonFileGenerator();
                 jsonGenerator.GenerateJsonFile(requestId, AppDataPath, data);

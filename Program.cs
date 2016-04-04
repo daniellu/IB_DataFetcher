@@ -23,7 +23,7 @@ namespace IB.PriceFetcher
             var stockContract = GetStockContract();
             client.ClientSocket.reqContractDetails(nextRequestId++, stockContract);
 
-            //4002 is the request Id appears in the response
+            //nextRequestId is the request Id appears in the response
             //program uses this id to match where the request comes from 
             client.ClientSocket.reqHistoricalData(nextRequestId++, stockContract, "20131009 23:59:59", "10 D", "1 min", "TRADES", 1, 1, null);
             Thread.Sleep(10000);
