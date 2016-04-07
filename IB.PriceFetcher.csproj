@@ -54,6 +54,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CsvFileGenerator.cs" />
     <Compile Include="EWrapperImpl.cs" />
     <Compile Include="HistoricalDataMessage.cs" />
     <Compile Include="JsonFileGenerator.cs" />
