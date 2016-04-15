@@ -7,7 +7,7 @@ using System.IO;
 
 using CsvHelper;
 
-namespace IB.PriceFetcher
+namespace Common
 {
     public class CsvFileGenerator
     {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using Newtonsoft.Json;
 
-namespace IB.PriceFetcher
+namespace Common
 {
     public class JsonFileGenerator
     {

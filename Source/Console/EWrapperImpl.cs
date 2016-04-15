@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 using IBApi;
 
+using Common;
+
 namespace IB.PriceFetcher
 {
     /// <summary>

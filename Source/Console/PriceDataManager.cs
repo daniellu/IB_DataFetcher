@@ -7,6 +7,8 @@ using System.IO;
 
 using CsvHelper;
 
+using Common;
+
 namespace IB.PriceFetcher
 {
     public class PriceDataManager
