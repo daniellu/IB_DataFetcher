@@ -37,9 +37,15 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="TWSLib">
+      <HintPath>Dependencies\TWSLib.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataFetcher.cs" />
     <Compile Include="DynamicDataFetcher.cs" />
+    <Compile Include="EWrapperImpl.cs" />
+    <Compile Include="PriceDataManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
