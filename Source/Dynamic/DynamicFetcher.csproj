@@ -43,7 +43,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataFetcher.cs" />
-    <Compile Include="DynamicDataFetcher.cs" />
     <Compile Include="EWrapperImpl.cs" />
     <Compile Include="PriceDataManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
