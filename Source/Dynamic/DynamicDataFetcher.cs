@@ -27,6 +27,9 @@ namespace DynamicFetcher
                     result = (Func<string, string, string, string, IEnumerable<HistoricalDataMessage>>)((string symbol, string endDate, string duration, string barSize)
                            => _dataFetcher.History(symbol, endDate, duration, barSize));
                     return true;
+                case "greeting":
+                    result = _dataFetcher.Greeting();
+                    return true;
             }
             return false;
         }

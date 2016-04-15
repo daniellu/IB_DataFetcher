@@ -11,6 +11,11 @@ namespace DynamicFetcher
 {
     public class DataFetcher
     {
+        public string Greeting()
+        {
+            return "Hello World";
+        }
+
         public IEnumerable<HistoricalDataMessage> History(string symbol, string endDate, string duration, string barSize)
         {
             var priceManager = new PriceDataManager();
