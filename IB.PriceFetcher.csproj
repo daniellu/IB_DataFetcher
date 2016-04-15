@@ -61,6 +61,7 @@
     <Compile Include="CsvFileGenerator.cs" />
     <Compile Include="EWrapperImpl.cs" />
     <Compile Include="HistoricalDataMessage.cs" />
+    <Compile Include="HistoricalDataMessageCSVMap.cs" />
     <Compile Include="JsonFileGenerator.cs" />
     <Compile Include="Options.cs" />
     <Compile Include="PriceDataManager.cs" />

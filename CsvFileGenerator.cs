@@ -17,6 +17,7 @@ namespace IB.PriceFetcher
             using (var textWriter = File.CreateText(filePath))
             {
                 var csv = new CsvWriter(textWriter);
+                csv.Configuration.RegisterClassMap(new HistoricalDataMessageCSVMap());
                 csv.WriteRecords(historicalData);
             }
         }
