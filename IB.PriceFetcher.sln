@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IB.PriceFetcher", "IB.PriceFetcher.csproj", "{A4D2148D-FB83-44EC-BC8A-C1F51ED26F7A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IB.PriceFetcher", "Source\Console\IB.PriceFetcher.csproj", "{A4D2148D-FB83-44EC-BC8A-C1F51ED26F7A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
