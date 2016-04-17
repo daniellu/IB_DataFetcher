@@ -46,9 +46,9 @@ namespace DynamicFetcher
             }
         }
 
-        public IEnumerable<HistoricalDataMessage> GetHistoricalData(int requestId)
+        public HistoricalDataMessage[] GetHistoricalData(int requestId)
         {
-            return HistoricalData[requestId];
+            return HistoricalData[requestId].ToArray();
         }
     }
 }

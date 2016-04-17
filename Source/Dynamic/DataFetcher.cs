@@ -19,11 +19,11 @@ namespace DynamicFetcher
         public IEnumerable<HistoricalDataMessage> History(string symbol, string endDate, string duration, string barSize)
         {
             var priceManager = new PriceDataManager();
-            var ibDataFetcher = new EWrapperImpl(priceManager);
+            EWrapperImpl client = new EWrapperImpl(priceManager);
 
             int nextRequestId = 1;
-            var priceDataManager = new PriceDataManager();
-            EWrapperImpl client = new EWrapperImpl(priceDataManager);
+            
+            
 
             try
             {
@@ -38,16 +38,24 @@ namespace DynamicFetcher
 
                 client.ClientSocket.reqHistoricalData(nextRequestId, stockContract, endDate, duration, barSize, "TRADES", 1, 1, null);
 
-                while (!priceManager.IsDownloadDone)
+                while (true)
                 {
                     //wait for the download complete
-                }
+                    if (priceManager.IsDownloadDone)
+                    {
+                        Console.WriteLine("Historical data download finishes...");
+                        break;
+                    }
 
+                }
+                
+
+                var historicalData = priceManager.GetHistoricalData(nextRequestId);
+                Console.WriteLine(historicalData.Count() + " data points in the downloaded data");
 
                 Console.WriteLine("Disconnecting...");
                 client.ClientSocket.eDisconnect();
 
-                var historicalData = priceManager.GetHistoricalData(nextRequestId);
                 return historicalData;
             }
             catch(Exception)
